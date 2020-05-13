@@ -1,0 +1,351 @@
+*{
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(13, 141, 226);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.App {
+    color: white;
+    min-width: 350px;
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* border: 1px solid green; */
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    /* border: 1px solid red; */
+  }
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.my-navbar {
+    color: white;
+    font-size: larger;
+    padding-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.my-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my-navbar li {
+    display: inline;
+}
+.my-navbar li:not(:first-child) {
+    margin-left: 10px;
+}
+
+.main-title {
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid blue;
+    border-top: 1px solid blue;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+
+.main-btn {
+    background-color: rgb(243, 210, 24);
+    color: white;
+    height: 50px;
+    min-width: 200px;
+    width: 50%;
+    max-width: 250px;
+    border: 3px solid rgb(238, 178, 38);
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 7px 1px black;
+    font-size: larger;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.main-btn:focus {
+    box-shadow: inset 0px 0px 25px 1px black;
+}
+
+.main-btn:disabled {
+    background-color: rgb(219, 211, 161);
+    border: 3px solid rgb(199, 175, 120);
+    cursor: not-allowed;
+}
+
+.main-btn:hover {
+    background-color: rgb(240, 220, 110);
+}
+
+.share-btn {
+    background-color: rgb(243, 210, 24);
+    border: 2px solid rgb(238, 178, 38);
+    color: white;
+    box-shadow: inset 0px 0px 7px 1px black;
+    width: 20%;
+    max-width: 100px;
+    min-width: 80px;
+    height: 35px;
+    font-size: medium;
+    border-radius:  25px;
+    cursor: pointer;
+}
+.share-btn:focus {
+    box-shadow: inset 0px 0px 15px 1px black;
+}
+.share-btn:hover{
+    background-color: rgb(240, 220, 110);
+}
+
+.link-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid rgb(243, 210, 24);
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.link-btn:focus{
+    border: none;
+    border-bottom: 2px solid rgb(107, 93, 15);
+}
+.link-btn:hover {
+    color: rgb(69, 57, 238);
+}
+
+.player-input {
+    border: none;
+    width: 50%;
+    min-width: 200px;
+    height: 50px;
+    border-radius: 25px 0px 0px 25px;
+    padding-left: 30px;
+    font-size: larger;
+    border-top: 2px solid rgb(238, 178, 38);
+    border-bottom: 2px solid rgb(238, 178, 38);
+    border-left: 2px solid rgb(238, 178, 38);
+    padding-top: 1px;
+    color: rgb(34, 32, 32);
+}
+.player-input:focus{
+    background-color: rgba(240, 236, 34, 0.685);
+}
+
+.add-player-btn {
+    border: none;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 0px 25px 25px 0px;
+    font-size: larger;
+    background-color: rgb(243, 210, 24);
+    color: white;
+    box-shadow: inset 0px 0px 7px 1px black;
+    border-top: 2px solid rgb(238, 178, 38);
+    border-bottom: 2px solid rgb(238, 178, 38);
+    border-right: 2px solid rgb(238, 178, 38);
+    font-weight: bolder;
+    cursor: pointer;
+    padding-bottom: 1px;
+}
+.add-player-btn:hover{
+    background-color: rgb(240, 220, 110);
+}
+.add-player-btn:focus{
+    box-shadow: inset 0px 0px 15px 1px black;
+}
+
+.player-list {
+    list-style-type: none;
+    color: rgb(221, 205, 205);
+    font-size: x-large;
+    overflow-y: scroll;
+    max-height: 500px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    box-shadow: inset 0px 0px 15px 5px black;
+    min-height: 100px;
+}
+
+.player-list li {
+    border-bottom: 1px dashed white;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(144, 144, 144); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(138, 138, 138); 
+  }
+
+.game-simulator{
+      width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.game-simulator canvas {
+    border: 1px solid black !important;
+}
+
+.action-message {
+    position: absolute;
+    top: 30px;
+    left: 25%;
+    /* max-width: 200px;
+    min-width: 100px; */
+    width: 50%;
+    min-height: 400px;
+    height: auto;
+    background-color: rgb(235, 198, 36);
+    z-index: 1;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-top: 10px;
+    font-size: x-large;
+}
+
+.gif-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 500px;
+}
+
+.next-btn {
+    border: none;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: medium;
+    background-color: rgb(15, 122, 223);
+    color: white;
+    box-shadow: inset 0px 0px 7px 1px black;
+    border: 2px solid rgb(14, 107, 168);
+    font-weight: bolder;
+    cursor: pointer;
+    padding-bottom: 1px;
+}
+.next-btn:hover {
+    background-color: rgb(90, 160, 226);
+}
+.next-btn:focus{
+    box-shadow: inset 0px 0px 15px 1px black;
+}
+
+
+.game-state-list {
+    list-style-type: square;
+    background-color: rgb(65, 157, 218);
+    color: white;
+    box-shadow: inset 0px 0px 15px 0px black;
+    width: 40%;
+    min-width: 300px;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: left;
+}
+
+
+.image-dropdown {
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    list-style-type: none;
+    height: auto;
+    max-height: 300px;
+    width: 100%;
+    min-width: 50px;
+    text-align: center;
+    overflow-x: scroll; 
+    /* border: 2px solid purple; */
+}
+
+.image-dropdown li {
+    /* border: 2px solid salmon; */
+    margin: 0;
+    display: inline;
+ 
+}
+
+.image-dropdown li:hover {
+    background-color: rgb(73, 85, 248);
+    color: white;
+}
