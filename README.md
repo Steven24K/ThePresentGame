@@ -1,5 +1,5 @@
 # The Present Game
-This is a custom React toolchain for starting a single page React app with Typescript. A demo app is available [here](https://stevenkoerts.nl/Hello-React-Typescript/).
+This is a custom React toolchain for starting a single page React app with Typescript. A demo app is available [here](https://stevenkoerts.nl/ThePresentGame/).
 
 ## Dependencies 
 - React

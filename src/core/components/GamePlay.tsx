@@ -1,14 +1,13 @@
 import React from 'react'
-import { Stage, Layer, Circle, Image ,Group, Rect, Text } from 'react-konva'
+import { Stage, Layer, Group, Text } from 'react-konva'
 import { Vector2d } from 'konva/types/types'
 import { Option, GameState, ActionBuilderSettings, None, ActionBuilder, getRandomArbitrary, Some } from '../game'
 import { Entity } from 'ts-lenses'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faBox } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { giphy } from '../../config'
 
 import { IGif } from '@giphy/js-types';
-import { Gif } from '@giphy/react-components'
 import { InL, InR } from '../../utils/Either'
 import { selectStaticImage } from '../../utils/selectStaticImage'
 import URLImage from '../../components/URLImage'
@@ -46,7 +45,7 @@ export default class GamePlay extends React.Component<GamePlayProps, GamePlaySta
     }
 
     componentWillMount() {
-        this.setState(s => Entity(s).setIn('canvasSettings', c => c.set('layout', _ => this.props.gameState.drawPlayerCircle(150, { x: 175, y: 175 }))).commit())
+        this.setState(s => Entity(s).setIn('canvasSettings', c => c.set('layout', _ => this.props.gameState.drawPlayerCircle(190, { x: 200, y: 200 }))).commit())
     }
 
     render() {
@@ -106,7 +105,7 @@ export default class GamePlay extends React.Component<GamePlayProps, GamePlaySta
 
             }
 
-            <h2>It's <img height='64px' width='64px' src={this.props.gameState.getCurent().avatar.src}/>{this.props.gameState.getCurent().name}'s turn</h2>
+            <h2>It's <img height='64px' width='64px' src={this.props.gameState.getCurent().avatar.src} />{this.props.gameState.getCurent().name}'s turn</h2>
 
             {this.state.actionResult.kind != 'none' ? <div className='action-message'>
                 <p>
@@ -130,19 +129,14 @@ export default class GamePlay extends React.Component<GamePlayProps, GamePlaySta
             <div className='row'>
 
                 <div className='col-12'>
-                    <Stage className='game-simulator' height={350} width={350}>
+                    <Stage className='game-simulator' height={400} width={400}>
                         <Layer ref='layer'>
 
                             {this.state.canvasSettings.layout.map((pos, i) => <Group key={i}>
 
-                                <URLImage ref={`#${i}`} src={this.props.gameState.players[i].avatar.src} x={pos.x-16} y={pos.y-16} width={32} height={32} draggable={false} stroke={i == this.props.gameState.currentIndex ? 'orange' : ''} strokeWidth={3} onDragEnd={() => {
-                                    let p = this.refs[`#${i}`] as any
-                                    let layer = this.refs['layer'] as any
-                                    p.position(pos)
-                                    layer.draw()
-                                }} />
+                                <URLImage src={this.props.gameState.players[i].avatar.src} x={pos.x - 16} y={pos.y - 16} width={32} height={32} stroke={i == this.props.gameState.currentIndex ? 'orange' : ''} strokeWidth={3} />
 
-                                {this.props.gameState.players[i].hasPresent ? <Rect x={pos.x - 16} y={pos.y - 5} height={10} width={10} fill='orange' /> : null}
+                                {this.props.gameState.players[i].hasPresent ? <URLImage src='images/present.webp' x={pos.x - 16} y={pos.y + 5} height={32} width={32} /> : null}
 
                                 <Text x={pos.x - 16} y={pos.y + 16} text={this.props.gameState.players[i].name} />
 
@@ -160,10 +154,10 @@ export default class GamePlay extends React.Component<GamePlayProps, GamePlaySta
             <ol className='game-state-list'>
                 {this.props.gameState.players.map((player, index) => <li key={index}>
 
-                    <img height='16px' width='16px' src={player.avatar.src}/>
+                    <img height='16px' width='16px' src={player.avatar.src} />
                     <span className='player-name'>{player.name} </span>
 
-                    {player.hasPresent ? <span> <FontAwesomeIcon icon={faBox} /> </span> : <span> :( </span>}
+                    {player.hasPresent ? <span> <img src='images/present.webp' height='25px' width='25px' /> </span> : <span> :( </span>}
 
                     {this.props.gameState.currentIndex == index ? <FontAwesomeIcon icon={faArrowLeft} /> : <span></span>}
 

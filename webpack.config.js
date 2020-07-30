@@ -68,7 +68,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: 'templates/index.html',
-            favicon: 'static/img/favicon.png'
+            favicon: 'static/img/present.webp'
         }),
         new CleanWebpackPlugin(['dist']), 
         new CopyWebpackPlugin([

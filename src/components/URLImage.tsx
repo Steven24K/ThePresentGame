@@ -14,7 +14,7 @@ type URLImageProps = {
     draggable?: boolean
     stroke?: string
     strokeWidth?: number
-    onDragEnd: (evt: KonvaEventObject<DragEvent>) => void
+    onDragEnd?: (evt: KonvaEventObject<DragEvent>) => void
 }
 type URLImageState = {
     image: Option<HTMLImageElement>

@@ -25,7 +25,7 @@ export default class ImageDropDown extends React.Component<ImageDropDownProps, I
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener('click', () => this.setState(s => Entity(s).set('display', _ => 'none' as 'none').commit()))
+        document.body.removeEventListener('click', () => {})
     }
     
     render() {
@@ -34,7 +34,7 @@ export default class ImageDropDown extends React.Component<ImageDropDownProps, I
                 <img height={this.props.iconSize} width={this.props.iconSize} src={this.props.defaultValue} />
             </span>
             <ul className='image-dropdown' style={{display: this.state.display}}>
-                {this.props.urls.map(url => <li onClick={() => {
+                {this.props.urls.map(url => <li key={url} onClick={() => {
                     this.setState(s => Entity(s).set('display', _ => 'block' as 'block').commit())
                     this.props.onChange(url)
                 }}><img src={url} height={this.props.iconSize} width={this.props.iconSize} /></li>)}

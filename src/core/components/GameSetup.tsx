@@ -70,7 +70,7 @@ export default class GameSetup extends React.Component<GameSetupProps, GameSetup
                                     {player.name}
                                 </span>
 
-                                <span className='col-4 align-right'>
+                                <span className='col-4 align-right player-controls'>
                                     {i - 1 >= 0 ? <FontAwesomeIcon cursor='pointer' icon={faCaretUp} onClick={() => this.props.update(this.props.gameState.shiftPlayer(player, i - 1))} /> : <span></span>}
 
                                     {i + 1 < this.props.gameState.players.length ? <FontAwesomeIcon cursor='pointer' icon={faCaretDown} onClick={() => this.props.update(this.props.gameState.shiftPlayer(player, i + 1))} /> : <span></span>}

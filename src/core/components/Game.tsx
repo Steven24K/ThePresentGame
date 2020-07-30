@@ -3,6 +3,7 @@ import { ActionBuilderSettings, GameState, repeatUntil } from '../game'
 import StartScreen from './StartScreen'
 import GameSetup from './GameSetup'
 import GamePlay from './GamePlay'
+import { storageKey } from '../../config'
 
 type GameProps = {
     actionSettings: ActionBuilderSettings
@@ -15,7 +16,10 @@ export default class Game extends React.Component<GameProps, GameState> {
         this.setGameState = this.setGameState.bind(this)
     }
 
-    setGameState = (s: GameState) => this.setState(s)
+    setGameState = (s: GameState) => {
+        if (!Object.is(s, this.state)) localStorage.setItem(storageKey, JSON.stringify(s))
+        this.setState(s)
+    }
 
     componentDidMount() {
         //Uncomment this line to auto generate some users
